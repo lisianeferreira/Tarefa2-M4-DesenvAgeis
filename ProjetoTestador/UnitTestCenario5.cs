@@ -14,7 +14,7 @@ namespace ProjetoTestador
         [SetUp]
         public void Setup()
         {
-
+            responsavel = new Tutor();
         }
 
         #region Metodos de teste que Falham
