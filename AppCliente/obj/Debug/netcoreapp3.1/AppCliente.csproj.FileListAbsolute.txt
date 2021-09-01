@@ -1,0 +1,14 @@
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.exe
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.deps.json
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.runtimeconfig.json
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.runtimeconfig.dev.json
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.dll
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\bin\Debug\netcoreapp3.1\AppCliente.pdb
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.csproj.AssemblyReference.cache
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.AssemblyInfoInputs.cache
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.AssemblyInfo.cs
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.csproj.CoreCompileInputs.cache
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.dll
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.pdb
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.genruntimeconfig.cache

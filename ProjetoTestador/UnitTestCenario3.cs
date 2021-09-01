@@ -14,6 +14,7 @@ namespace ProjetoTestador
         [SetUp]
         public void Setup()
         {
+            usuario = new Usuario();
         }
 
         #region Metodos de teste que Falham
@@ -24,17 +25,15 @@ namespace ProjetoTestador
         [Test]
         public void UsuarioNaoAutorizadoFalha()
         {
-            usuario = new Usuario()
-            {
-                Ativo = true,
-                Id = 12345,
-                TipoUsuario = 4, // tipo de usuario não autorizado
-                Email = "joeBidden@gmail.com",
-                UserName = "JoeBidden"
-            };
+            usuario.Ativo = true;
+            usuario.Id = 12345;
+            usuario.TipoUsuario = 4; // tipo de usuario não autorizado
+            usuario.Email = "joeBidden@gmail.com";
+            usuario.UserName = "JoeBidden";
 
             var usuarioAcao = new UsuarioAcao();
             var retornoEsperado = usuarioAcao.AcessarPaginaFichaCadastral(usuario);
+
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
         }
@@ -50,17 +49,15 @@ namespace ProjetoTestador
         [Test]
         public void UsuarioNaoAutorizadoSucesso()
         {
-            usuario = new Usuario()
-            {
-                Ativo = true,
-                Id = 528593,
-                TipoUsuario = 0,  //tipo de usuario autorizado
-                Email = "angelaMerkel@gmail.com",
-                UserName = "angelaMerkel"
-            };
+            usuario.Ativo = true;
+            usuario.Id = 528593;
+            usuario.TipoUsuario = 0;  //tipo de usuario autorizado
+            usuario.Email = "angelaMerkel@gmail.com";
+            usuario.UserName = "angelaMerkel";
 
             var usuarioAcao = new UsuarioAcao();
             var retornoEsperado = usuarioAcao.AcessarPaginaFichaCadastral(usuario);
+
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
         }

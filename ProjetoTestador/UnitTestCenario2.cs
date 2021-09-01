@@ -15,7 +15,7 @@ namespace ProjetoTestador
         [SetUp]
         public void Setup()
         {
-
+            responsavel = new Tutor();
         }
 
         #region Metodos de teste que Falham
@@ -27,19 +27,17 @@ namespace ProjetoTestador
         [Test]
         public void TutorJaExisteNoSistemaFalha()
         {
-            responsavel = new Tutor
-            {
-                Id = 0,
-                Cpf = 44096023060, // CPF já existente na base de dados
-                CI = 1254887,
-                EstadoCivil = 1,
-                DataNascimento = Convert.ToDateTime("05/08/1975"),
-                Nome = "Joe Biden da Silva",
-                InstitucionalizadoId = 1,
-            };
+            responsavel.Id = 0;
+            responsavel.Cpf = 44096023060; // CPF já existente na base de dados
+            responsavel.CI = 1254887;
+            responsavel.EstadoCivil = 1;
+            responsavel.DataNascimento = Convert.ToDateTime("05/08/1975");
+            responsavel.Nome = "Joe Biden da Silva";
+            responsavel.InstitucionalizadoId = 1;
 
             var tutorAcao = new TutorAcao();
             var retornoEsperado = tutorAcao.SalvarItem(responsavel);
+
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
         }
@@ -55,19 +53,17 @@ namespace ProjetoTestador
         [Test]
         public void TutorJaExisteNoSistemaSucesso()
         {
-            responsavel = new Tutor
-            {
-                Id = 0,
-                Cpf = 62243785099, // CPF não existente  na base de dados
-                CI = 248745587,
-                EstadoCivil = 2,
-                DataNascimento = Convert.ToDateTime("01/10/1950"),
-                Nome = "Donald Trump de Oliveira",
-                InstitucionalizadoId = 1,
-            };
+            responsavel.Id = 0;
+            responsavel.Cpf = 62243785099; // CPF não existente  na base de dados
+            responsavel.CI = 248745587;
+            responsavel.EstadoCivil = 2;
+            responsavel.DataNascimento = Convert.ToDateTime("01/10/1950");
+            responsavel.Nome = "Donald Trump de Oliveira";
+            responsavel.InstitucionalizadoId = 1;
 
             var tutorAcao = new TutorAcao();
             var retornoEsperado = tutorAcao.SalvarItem(responsavel);
+
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
         }

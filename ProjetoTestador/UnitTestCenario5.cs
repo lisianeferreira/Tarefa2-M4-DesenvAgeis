@@ -26,15 +26,12 @@ namespace ProjetoTestador
         [Test]
         public void CamposObrigatoriosInvalidosCadastroTutorFalha()
         {
-            responsavel = new Tutor
-            {
-                Id = 0,
-                Cpf = 72552527027,
-                CI = 884857278,
-                EstadoCivil = 3,
-                DataNascimento = Convert.ToDateTime("05/08/1948"),
-                Nome = "Dilma Rusself",
-            };
+            responsavel.Id = 0;
+            responsavel.Cpf = 72552527027;
+            responsavel.CI = 884857278;
+            responsavel.EstadoCivil = 3;
+            responsavel.DataNascimento = Convert.ToDateTime("05/08/1948");
+            responsavel.Nome = "Dilma Rusself";
 
             var tutorAcao = new TutorAcao();
             var retornoEsperado = tutorAcao.SalvarItem(responsavel);
@@ -54,16 +51,13 @@ namespace ProjetoTestador
         [Test]
         public void CamposObrigatoriosInvalidosCadastroTutorSucesso()
         {
-            responsavel = new Tutor
-            {
-                Id = 0,
-                Cpf = 72552527027,
-                CI = 884857278,
-                EstadoCivil = 3,
-                DataNascimento = Convert.ToDateTime("05/08/1948"), 
-                Nome = "Dilma Rusself",
-                InstitucionalizadoId = 1,
-            };
+            responsavel.Id = 0;
+            responsavel.Cpf = 72552527027;
+            responsavel.CI = 884857278;
+            responsavel.EstadoCivil = 3;
+            responsavel.DataNascimento = Convert.ToDateTime("05/08/1948");
+            responsavel.Nome = "Dilma Rusself";
+            responsavel.InstitucionalizadoId = 1;
 
             var tutorAcao = new TutorAcao();
             var retornoEsperado = tutorAcao.SalvarItem(responsavel);

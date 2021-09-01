@@ -14,7 +14,7 @@ namespace ProjetoTestador
         [SetUp]
         public void Setup()
         {
-
+            idoso = new Institucionalizado();
         }
 
         #region Metodos de teste que Falham
@@ -26,19 +26,16 @@ namespace ProjetoTestador
         [Test]
         public void CamposObrigatoriosInvalidosCadastroInstitucionalizadoFalha()
         {
-            idoso = new Institucionalizado
-            {
-                Id = 0,
-                Cpf = 72552527027,
-                CI = 884857278,
-                EstadoCivil = 3,
-                DataNascimento = Convert.ToDateTime("01/01/0001"), // data inválida
-                Nome = "Dilma Rusself",
-            };
+            idoso.Id = 0;
+            idoso.Cpf = 72552527027;
+            idoso.CI = 884857278;
+            idoso.EstadoCivil = 3;
+            idoso.DataNascimento = Convert.ToDateTime("01/01/0001"); // data inválida
+            idoso.Nome = "Dilma Rusself";
 
             var institucionalizadoAcao = new InstitucionalizadoAcao();
             var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
-            
+
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
         }
@@ -54,15 +51,12 @@ namespace ProjetoTestador
         [Test]
         public void CamposObrigatoriosInvalidosCadastroInstitucionalizadoSucesso()
         {
-            idoso = new Institucionalizado
-            {
-                Id = 0,
-                Cpf = 72552527027,
-                CI = 884857278,
-                EstadoCivil = 3,
-                DataNascimento = Convert.ToDateTime("01/01/1946"), // data válida
-                Nome = "Dilma Rusself",
-            };
+            idoso.Id = 0;
+            idoso.Cpf = 72552527027;
+            idoso.CI = 884857278;
+            idoso.EstadoCivil = 3;
+            idoso.DataNascimento = Convert.ToDateTime("01/01/1946"); // data válida
+            idoso.Nome = "Dilma Rusself";
 
             var institucionalizadoAcao = new InstitucionalizadoAcao();
             var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
