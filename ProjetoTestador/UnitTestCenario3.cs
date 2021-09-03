@@ -9,12 +9,12 @@ namespace ProjetoTestador
 {
     public class UnitTestCenario3
     {
-        private Usuario usuario;
+        private Usuario usuarioLogado;
 
         [SetUp]
         public void Setup()
         {
-            usuario = new Usuario();
+            usuarioLogado = new Usuario();
         }
 
         #region Metodos de teste que Falham
@@ -25,14 +25,13 @@ namespace ProjetoTestador
         [Test]
         public void UsuarioNaoAutorizadoFalha()
         {
-            usuario.Ativo = true;
-            usuario.Id = 12345;
-            usuario.TipoUsuario = 4; // tipo de usuario não autorizado
-            usuario.Email = "joeBidden@gmail.com";
-            usuario.UserName = "JoeBidden";
-
-            var usuarioAcao = new UsuarioAcao();
-            var retornoEsperado = usuarioAcao.AcessarPaginaFichaCadastral(usuario);
+            usuarioLogado.Ativo = true;
+            usuarioLogado.Id = 12345;
+            usuarioLogado.TipoUsuario = 4; // tipo de usuario não autorizado
+            usuarioLogado.Email = "joeBidden@gmail.com";
+            usuarioLogado.UserName = "JoeBidden";
+                        
+            var retornoEsperado = UsuarioAcao.Instance.VeririficarPermissaoUsuario(usuarioLogado);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
@@ -49,14 +48,13 @@ namespace ProjetoTestador
         [Test]
         public void UsuarioNaoAutorizadoSucesso()
         {
-            usuario.Ativo = true;
-            usuario.Id = 528593;
-            usuario.TipoUsuario = 0;  //tipo de usuario autorizado
-            usuario.Email = "angelaMerkel@gmail.com";
-            usuario.UserName = "angelaMerkel";
-
-            var usuarioAcao = new UsuarioAcao();
-            var retornoEsperado = usuarioAcao.AcessarPaginaFichaCadastral(usuario);
+            usuarioLogado.Ativo = true;
+            usuarioLogado.Id = 528593;
+            usuarioLogado.TipoUsuario = 0;
+            usuarioLogado.Email = "angelaMerkel@gmail.com";
+            usuarioLogado.UserName = "angelaMerkel";
+                        
+            var retornoEsperado = UsuarioAcao.Instance.VeririficarPermissaoUsuario(usuarioLogado);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();

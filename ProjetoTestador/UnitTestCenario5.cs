@@ -32,9 +32,8 @@ namespace ProjetoTestador
             responsavel.EstadoCivil = 3;
             responsavel.DataNascimento = Convert.ToDateTime("05/08/1948");
             responsavel.Nome = "Dilma Rusself";
-
-            var tutorAcao = new TutorAcao();
-            var retornoEsperado = tutorAcao.SalvarItem(responsavel);
+                        
+            var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
@@ -58,9 +57,8 @@ namespace ProjetoTestador
             responsavel.DataNascimento = Convert.ToDateTime("05/08/1948");
             responsavel.Nome = "Dilma Rusself";
             responsavel.InstitucionalizadoId = 1;
-
-            var tutorAcao = new TutorAcao();
-            var retornoEsperado = tutorAcao.SalvarItem(responsavel);
+                        
+            var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();

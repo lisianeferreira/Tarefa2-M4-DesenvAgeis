@@ -10,12 +10,12 @@ namespace ProjetoTestador
 {
     public class UnitTestCenario1
     {
-        private Institucionalizado idoso;
+        private Institucionalizado idosoExistente;
 
         [SetUp]
         public void Setup()
         {
-            idoso = new Institucionalizado();
+            idosoExistente = new Institucionalizado();
         }
 
         #region Metodos de teste que Falham
@@ -27,15 +27,14 @@ namespace ProjetoTestador
         [Test]
         public void InstitucionalizadoJaExisteNoSistemaFalha()
         {
-            idoso.Id = 0;
-            idoso.Cpf = 44096023060; // CPF já existente na base de dados
-            idoso.CI = 1254887;
-            idoso.EstadoCivil = 1;
-            idoso.DataNascimento = Convert.ToDateTime("05/08/1948");
-            idoso.Nome = "Barak Obama da Silva";
-
-            var institucionalizadoAcao = new InstitucionalizadoAcao();
-            var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
+            idosoExistente.Id = 0;
+            idosoExistente.Cpf = 44096023060; // CPF já existente na lista
+            idosoExistente.CI = 1254887;
+            idosoExistente.EstadoCivil = 1;
+            idosoExistente.DataNascimento = Convert.ToDateTime("05/08/1948");
+            idosoExistente.Nome = "Barak Obama da Silva";            
+            
+            var retornoEsperado = InstitucionalizadoAcao.Instance.SalvarItem(idosoExistente);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
@@ -52,15 +51,14 @@ namespace ProjetoTestador
         [Test]
         public void InstitucionalizadoJaExisteNoSistemaSucesso()
         {
-            idoso.Id = 0;
-            idoso.Cpf = 62243785099; // CPF não existente  na base de dados
-            idoso.CI = 248745587;
-            idoso.EstadoCivil = 2;
-            idoso.DataNascimento = Convert.ToDateTime("01/10/1950");
-            idoso.Nome = "Boris Jhonson de Oliveira";
-
-            var institucionalizadoAcao = new InstitucionalizadoAcao();
-            var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
+            idosoExistente.Id = 0;
+            idosoExistente.Cpf = 62243785099; 
+            idosoExistente.CI = 248745587;
+            idosoExistente.EstadoCivil = 2;
+            idosoExistente.DataNascimento = Convert.ToDateTime("01/10/1950");
+            idosoExistente.Nome = "Boris Jhonson de Oliveira";
+                        
+            var retornoEsperado = InstitucionalizadoAcao.Instance.SalvarItem(idosoExistente);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();

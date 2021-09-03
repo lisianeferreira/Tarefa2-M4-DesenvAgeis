@@ -32,9 +32,8 @@ namespace ProjetoTestador
             idoso.EstadoCivil = 3;
             idoso.DataNascimento = Convert.ToDateTime("01/01/0001"); // data inválida
             idoso.Nome = "Dilma Rusself";
-
-            var institucionalizadoAcao = new InstitucionalizadoAcao();
-            var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
+                        
+            var retornoEsperado = InstitucionalizadoAcao.Instance.SalvarItem(idoso);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();
@@ -57,9 +56,8 @@ namespace ProjetoTestador
             idoso.EstadoCivil = 3;
             idoso.DataNascimento = Convert.ToDateTime("01/01/1946"); // data válida
             idoso.Nome = "Dilma Rusself";
-
-            var institucionalizadoAcao = new InstitucionalizadoAcao();
-            var retornoEsperado = institucionalizadoAcao.SalvarItem(idoso);
+                        
+            var retornoEsperado = InstitucionalizadoAcao.Instance.SalvarItem(idoso);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
             Assert.Pass();

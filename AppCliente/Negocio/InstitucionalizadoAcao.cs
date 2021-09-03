@@ -2,15 +2,47 @@
 using AppCliente.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AppCliente.Negocio
 {
     public class InstitucionalizadoAcao
     {
+        private List<Institucionalizado> listaBD = new List<Institucionalizado>();
+        private static volatile InstitucionalizadoAcao fObjeto;
+        private static object syncRoot = new Object();
+
+        public static InstitucionalizadoAcao Instance
+        {
+            get
+            {
+                if (fObjeto == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (fObjeto == null)
+                        {
+                            fObjeto = new InstitucionalizadoAcao();
+                        }
+                    }
+                }
+
+                return fObjeto;
+            }
+        }
+
         public InstitucionalizadoAcao()
         {
-
+            this.listaBD.Add(new Institucionalizado
+            {
+                Id = 15454884,
+                Cpf = 44096023060,
+                CI = 1254887,
+                EstadoCivil = 1,
+                DataNascimento = Convert.ToDateTime("05/08/1948"),
+                Nome = "Barak Obama da Silva",
+            });
         }
 
         public ParametroRetorno SalvarItem(Institucionalizado idoso)
@@ -18,13 +50,15 @@ namespace AppCliente.Negocio
             var retorno = new ParametroRetorno();
             try
             {
-                if (ValidarCamposObrigatorios(idoso).Sucesso)
+                if (VerificarCamposObrigatorios(idoso).Sucesso)
                 {
                     if (ValidarCampos(idoso).Sucesso)
                     {
                         if (RetornarItem(idoso.Cpf).Sucesso)
                         {
-                            //aqui segue rotina de salvar na base
+                            //add na lista
+                            listaBD.Add(idoso);
+                            
                             retorno.Mensagem = "Registro salvo com sucesso.";
                             retorno.Sucesso = true;
                         }
@@ -39,13 +73,11 @@ namespace AppCliente.Negocio
             return retorno;
         }
 
-
-        private ParametroRetorno RetornarItem(double cpf)
+        public ParametroRetorno RetornarItem(double cpf)
         {
             var retorno = new ParametroRetorno() { Sucesso = true };
-            double cpfExistente = 44096023060;
-
-            if (cpf == cpfExistente)
+            var idoso = listaBD.Where(p => p.Cpf == cpf).FirstOrDefault();
+            if (idoso != null)
             {
                 retorno.Mensagem = "Institucionalizado já cadastrado.";
                 retorno.Sucesso = false;
@@ -53,8 +85,7 @@ namespace AppCliente.Negocio
             return retorno;
         }
 
-
-        private ParametroRetorno ValidarCamposObrigatorios(Institucionalizado idoso)
+        private ParametroRetorno VerificarCamposObrigatorios(Institucionalizado idoso)
         {
             var retorno = new ParametroRetorno() { Sucesso = true };
 
