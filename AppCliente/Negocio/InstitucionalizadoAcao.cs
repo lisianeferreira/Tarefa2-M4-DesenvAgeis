@@ -7,7 +7,11 @@ using System.Text;
 namespace AppCliente.Negocio
 {
     public class InstitucionalizadoAcao
-    {        
+    {
+        public InstitucionalizadoAcao()
+        {
+
+        }
 
         public ParametroRetorno SalvarItem(Institucionalizado idoso)
         {
