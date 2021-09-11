@@ -34,18 +34,11 @@ namespace ProjetoTestador
             responsavel.DataNascimento = Convert.ToDateTime("05/08/1975");
             responsavel.Nome = "Joe Biden da Silva";
             responsavel.InstitucionalizadoId = 1;
-            
-            try
-            {                
-                var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
 
-                Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
-                Assert.Pass();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }            
+            var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
+
+            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
+            Assert.Pass();
         }
 
         #endregion
@@ -60,13 +53,13 @@ namespace ProjetoTestador
         public void TutorJaExisteNoSistemaSucesso()
         {
             responsavel.Id = 0;
-            responsavel.Cpf = 62243785099; 
+            responsavel.Cpf = 62243785099;
             responsavel.CI = 248745587;
             responsavel.EstadoCivil = 2;
             responsavel.DataNascimento = Convert.ToDateTime("01/10/1950");
             responsavel.Nome = "Donald Trump de Oliveira";
             responsavel.InstitucionalizadoId = 1;
-                        
+
             var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
 
             Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));

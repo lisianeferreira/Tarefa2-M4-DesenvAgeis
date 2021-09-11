@@ -11,3 +11,4 @@ C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppC
 C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.dll
 C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.pdb
 C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.genruntimeconfig.cache
+C:\Users\jccardosors\Desktop\testeGitHub\AppCliente\obj\Debug\netcoreapp3.1\AppCliente.csproj.AssemblyReference.cache
