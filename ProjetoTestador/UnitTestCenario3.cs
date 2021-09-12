@@ -33,7 +33,7 @@ namespace ProjetoTestador
                         
             var retornoEsperado = UsuarioAcao.Instance.VeririficarPermissaoUsuario(usuarioLogado);
 
-            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
+            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(false));
             Assert.Pass();
         }
 

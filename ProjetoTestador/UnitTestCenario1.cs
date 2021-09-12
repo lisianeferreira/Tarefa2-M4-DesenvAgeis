@@ -36,7 +36,7 @@ namespace ProjetoTestador
             
             var retornoEsperado = InstitucionalizadoAcao.Instance.SalvarItem(idosoExistente);
 
-            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
+            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(false));
             Assert.Pass();
         }
 

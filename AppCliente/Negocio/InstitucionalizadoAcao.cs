@@ -9,10 +9,11 @@ namespace AppCliente.Negocio
 {
     public class InstitucionalizadoAcao
     {
+        #region Propriedades
+
         private List<Institucionalizado> listaBD = new List<Institucionalizado>();
         private static volatile InstitucionalizadoAcao fObjeto;
         private static object syncRoot = new Object();
-
         public static InstitucionalizadoAcao Instance
         {
             get
@@ -31,6 +32,8 @@ namespace AppCliente.Negocio
                 return fObjeto;
             }
         }
+
+        #endregion
 
         public InstitucionalizadoAcao()
         {
@@ -72,6 +75,8 @@ namespace AppCliente.Negocio
             }
             return retorno;
         }
+
+        #region Metodos Adicionais
 
         public ParametroRetorno RetornarItem(double cpf)
         {
@@ -144,5 +149,7 @@ namespace AppCliente.Negocio
 
             return retorno;
         }
+
+        #endregion
     }
 }

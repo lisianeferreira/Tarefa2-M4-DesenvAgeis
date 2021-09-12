@@ -37,7 +37,7 @@ namespace ProjetoTestador
 
             var retornoEsperado = TutorAcao.Instance.SalvarItem(responsavel);
 
-            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(true));
+            Assert.That(retornoEsperado.Sucesso, Is.EqualTo(false));
             Assert.Pass();
         }
 
